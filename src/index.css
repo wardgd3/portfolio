@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light only;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-serif antialiased;
+    font-feature-settings: "ss01", "ss02";
+  }
+
+  /* Hairline rule used throughout the design */
+  .rule {
+    @apply border-ink/20;
+    border-width: 0.5px;
+  }
+  .rule-t { border-top-width: 0.5px; @apply border-ink/20; }
+  .rule-b { border-bottom-width: 0.5px; @apply border-ink/20; }
+  .rule-l { border-left-width: 0.5px; @apply border-ink/20; }
+  .rule-r { border-right-width: 0.5px; @apply border-ink/20; }
+
+  /* Editorial label style — tiny mono uppercase with wide tracking */
+  .label {
+    @apply font-mono text-[10.5px] uppercase tracking-widewide text-ink/70;
+  }
+  .label-strong {
+    @apply font-mono text-[10.5px] uppercase tracking-widewide text-ink;
+  }
+
+  /* Underline-only inputs for the contact form */
+  .input-line {
+    @apply w-full bg-transparent border-0 border-b border-ink/30 py-3
+           text-ink placeholder:text-ink/30 font-serif text-lg
+           focus:outline-none focus:border-ink focus:border-b
+           transition-colors;
+    border-bottom-width: 0.5px;
+  }
+  .input-line:focus {
+    border-bottom-width: 1px;
+  }
+
+  /* Button styles */
+  .btn-ink {
+    @apply inline-flex items-center justify-center gap-2
+           bg-ink text-paper font-mono uppercase tracking-widewide text-xs
+           px-6 py-4 transition-colors hover:bg-ink-soft;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent text-ink font-mono uppercase tracking-widewide text-xs
+           px-6 py-4 transition-colors hover:bg-ink/5;
+    border: 0.5px solid theme('colors.ink.DEFAULT');
+  }
+
+  /* Subtle scroll experience */
+  html { scroll-behavior: smooth; }
+
+  /* Selection */
+  ::selection { background-color: rgba(14, 13, 11, 0.85); color: #f5f2ed; }
+}
+
+@layer utilities {
+  .editorial-h {
+    @apply font-serif font-light leading-[0.95] tracking-tight text-ink;
+  }
+  .price {
+    @apply font-serif font-light text-ink;
+  }
+  .availability-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    display: inline-block;
+  }
+}

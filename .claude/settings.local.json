@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__ba8af099-3825-48c0-8b1c-1752d68b11ee__list_projects",
+      "mcp__ba8af099-3825-48c0-8b1c-1752d68b11ee__list_tables",
+      "mcp__ba8af099-3825-48c0-8b1c-1752d68b11ee__execute_sql",
+      "mcp__ba8af099-3825-48c0-8b1c-1752d68b11ee__apply_migration",
+      "mcp__ba8af099-3825-48c0-8b1c-1752d68b11ee__get_publishable_keys",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(npx vite *)"
+    ]
+  }
+}
