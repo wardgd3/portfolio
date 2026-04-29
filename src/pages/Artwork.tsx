@@ -5,6 +5,7 @@ import { useCart } from '../context/CartContext';
 import { formatPrice } from '../lib/format';
 import { AvailabilityBadge } from '../components/AvailabilityBadge';
 import { supabase } from '../lib/supabase';
+import { cldSrcSet, cldUrl } from '../lib/cloudinary';
 
 export default function Artwork() {
   const { slug } = useParams();
@@ -48,7 +49,9 @@ export default function Artwork() {
         {/* Image — full bleed left */}
         <div className="bg-paper-deep min-h-[60vh] lg:min-h-[calc(100vh-5rem)] flex items-center justify-center p-6 md:p-10 lg:rule-r">
           <img
-            src={artwork.image_url}
+            src={cldUrl(artwork.image_url, { width: 1600 })}
+            srcSet={cldSrcSet(artwork.image_url, [800, 1200, 1600, 2000])}
+            sizes="(min-width: 1024px) 50vw, 100vw"
             alt={artwork.title}
             className={`max-h-[80vh] w-auto max-w-full object-contain ${isSold ? 'grayscale opacity-80' : ''}`}
           />

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../lib/format';
+import { cldUrl } from '../lib/cloudinary';
 
 export default function Cart() {
   const { lines, remove, subtotalCents, count } = useCart();
@@ -34,7 +35,7 @@ export default function Cart() {
               <Link to={`/works/${line.artwork.slug}`} className="block">
                 <div className="aspect-[4/5] bg-paper-deep overflow-hidden">
                   <img
-                    src={line.artwork.image_url}
+                    src={cldUrl(line.artwork.image_url, { width: 280, aspectRatio: '4:5' })}
                     alt={line.artwork.title}
                     className="w-full h-full object-cover"
                   />

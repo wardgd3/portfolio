@@ -5,6 +5,7 @@ import type { Appearance } from '@stripe/stripe-js';
 import { useCart } from '../context/CartContext';
 import { formatPrice } from '../lib/format';
 import { getStripe, stripeConfigured } from '../lib/stripe';
+import { cldUrl } from '../lib/cloudinary';
 
 const stripeAppearance: Appearance = {
   theme: 'flat',
@@ -88,7 +89,7 @@ export default function Checkout() {
             {lines.map((l) => (
               <li key={l.artwork.id} className="flex gap-4 items-start">
                 <div className="w-16 aspect-[4/5] bg-paper-deep overflow-hidden shrink-0">
-                  <img src={l.artwork.image_url} alt="" className="w-full h-full object-cover" />
+                  <img src={cldUrl(l.artwork.image_url, { width: 200, aspectRatio: '4:5' })} alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1 min-w-0">
                   <p className="font-serif text-lg font-light leading-tight truncate">{l.artwork.title}</p>

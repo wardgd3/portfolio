@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import type { Artwork } from '../types';
 import { formatPrice } from '../lib/format';
 import { AvailabilityBadge } from './AvailabilityBadge';
+import { cldSrcSet, cldUrl } from '../lib/cloudinary';
 
 interface Props {
   artwork: Artwork;
@@ -18,7 +19,9 @@ export function ArtworkCard({ artwork }: Props) {
     >
       <div className="relative aspect-[4/5] overflow-hidden bg-paper-deep">
         <img
-          src={artwork.image_url}
+          src={cldUrl(artwork.image_url, { width: 800, aspectRatio: '4:5' })}
+          srcSet={cldSrcSet(artwork.image_url, [400, 600, 800, 1200], { aspectRatio: '4:5' })}
+          sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           alt={artwork.title}
           loading="lazy"
           className={`w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]

@@ -26,7 +26,10 @@ export function Footer() {
       <div className="rule-t">
         <div className="mx-auto max-w-editorial px-6 md:px-10 py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
           <p className="label">© {new Date().getFullYear()} Studio. All works copyright the artist.</p>
-          <p className="label">Site by the studio</p>
+          <div className="flex items-center gap-5">
+            <Link to="/admin" className="label hover:text-ink">Admin</Link>
+            <p className="label">Site by the studio</p>
+          </div>
         </div>
       </div>
     </footer>
