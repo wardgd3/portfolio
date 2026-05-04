@@ -3,6 +3,12 @@ export default function About() {
     <article className="mx-auto max-w-editorial px-6 md:px-10 pt-16 md:pt-24 pb-24">
       <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         <aside className="lg:col-span-4 lg:sticky lg:top-32 self-start">
+          <img
+            src="/profile.jpg"
+            alt="Portrait of the artist"
+            className="w-56 h-56 md:w-64 md:h-64 rounded-full object-cover mb-8 mx-auto block"
+            style={{ objectPosition: '50% 20%' }}
+          />
           <p className="label-strong mb-6">About</p>
           <h1 className="editorial-h text-4xl md:text-5xl">A working studio.</h1>
           <p className="font-serif text-lg font-light text-ink/70 mt-6 leading-relaxed">
